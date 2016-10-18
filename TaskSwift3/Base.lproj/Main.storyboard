@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xGN-uJ-6pe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -21,21 +21,23 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q8R-kq-QfJ" id="S97-TQ-loD">
-                                    <frame key="frameInset" width="375" height="60"/>
+                                    <frame key="frameInset" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-2Z-Nn1">
-                                            <frame key="frameInset" minX="8" minY="11" width="72.5" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-2Z-Nn1">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Jq1-vM-bDJ"/>
+                                                <constraint firstAttribute="width" constant="243" id="Xew-lh-nJ0"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7g-Wm-2eB">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="2Wh-q9-ax1"/>
-                                                <constraint firstAttribute="height" constant="50" id="O9V-Xs-WZZ"/>
-                                                <constraint firstAttribute="width" secondItem="K7g-Wm-2eB" secondAttribute="height" multiplier="1:1" id="r1w-oF-0ia"/>
+                                                <constraint firstAttribute="height" constant="50" id="FHc-y8-cCL"/>
+                                                <constraint firstAttribute="width" secondItem="K7g-Wm-2eB" secondAttribute="height" multiplier="1:1" id="Kg2-hM-sPp"/>
+                                                <constraint firstAttribute="width" constant="50" id="liU-NZ-PhC"/>
                                             </constraints>
                                             <state key="normal" title="-" image="notchecked"/>
                                             <connections>
@@ -44,9 +46,12 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="K7g-Wm-2eB" secondAttribute="bottom" constant="6" id="eIT-YO-j2r"/>
-                                        <constraint firstAttribute="trailing" secondItem="K7g-Wm-2eB" secondAttribute="trailing" constant="19" id="sAN-05-CMh"/>
-                                        <constraint firstItem="K7g-Wm-2eB" firstAttribute="top" secondItem="S97-TQ-loD" secondAttribute="top" constant="4" id="vqD-7f-Zew"/>
+                                        <constraint firstItem="K7g-Wm-2eB" firstAttribute="top" secondItem="S97-TQ-loD" secondAttribute="top" id="BlO-pt-dZB"/>
+                                        <constraint firstItem="1h6-2Z-Nn1" firstAttribute="top" secondItem="S97-TQ-loD" secondAttribute="topMargin" constant="3" id="CnV-XU-Z5O"/>
+                                        <constraint firstItem="1h6-2Z-Nn1" firstAttribute="bottom" secondItem="S97-TQ-loD" secondAttribute="bottomMargin" id="Lpk-en-8jn"/>
+                                        <constraint firstAttribute="trailing" secondItem="K7g-Wm-2eB" secondAttribute="trailing" constant="20" id="MLM-CJ-aA8"/>
+                                        <constraint firstAttribute="bottom" secondItem="K7g-Wm-2eB" secondAttribute="bottom" constant="9" id="Mhm-LR-Cp1"/>
+                                        <constraint firstItem="1h6-2Z-Nn1" firstAttribute="leading" secondItem="S97-TQ-loD" secondAttribute="leadingMargin" id="X5H-UG-aDp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -122,10 +127,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y2r-MG-Xyw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="n0P-5J-yzz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="n0P-5J-yzz">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="OiV-UT-l65" id="k3F-Wz-TGZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDatePicker" destination="wg9-eL-NPN" id="A8l-5b-zfG"/>
+                        <outlet property="taskTextField" destination="GUx-U2-tYm" id="Hwc-ub-5ZJ"/>
+                        <outlet property="taskTextView" destination="W2E-Ve-M4V" id="yX9-Qv-4b3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBB-38-3Y2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="w6G-fb-bIo">
+                    <connections>
+                        <action selector="userTappedView:" destination="OiV-UT-l65" id="V0L-8P-cZh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1645.5999999999999" y="-13.043478260869566"/>
         </scene>
